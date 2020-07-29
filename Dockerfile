@@ -13,8 +13,8 @@ ARG ZENTAO_VERSION=12.3.3
 RUN mkdir -p /app/zentaopms
 COPY docker-entrypoint.sh /app
 RUN chmod 777 /app/docker-entrypoint.sh && \
-    #curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.stable.zip -o /var/www/zentao.zip && \
-    curl https://www.zentao.net/dl/ZenTaoPMS.${ZENTAO_VERSION}.zip -o /var/www/zentao.zip && \
+    curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.stable.zip -o /var/www/zentao.zip && \
+    #curl https://www.zentao.net/dl/ZenTaoPMS.${ZENTAO_VERSION}.zip -o /var/www/zentao.zip && \
     cd /var/www/ && unzip -q zentao.zip && rm zentao.zip
 
 RUN a2enmod rewrite
