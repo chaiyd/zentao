@@ -8,13 +8,13 @@ RUN sed -i s/deb.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list && \
     apt update -y && \
     apt install -y apache2 php php-curl php-gd php-ldap php-mbstring php-mysql php-xml php-zip php-cli php-json curl unzip libapache2-mod-php
 
-ARG ZENTAO_VERSION=12.4
+ARG ZENTAO_VERSION=12.4.1
 
 RUN mkdir -p /app/zentaopms
 COPY docker-entrypoint.sh /app
 RUN chmod 777 /app/docker-entrypoint.sh && \
-    curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.stable.zip -o /var/www/zentao.zip && \
-    #curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.zip -o /var/www/zentao.zip && \
+    #curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.stable.zip -o /var/www/zentao.zip && \
+    curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.zip -o /var/www/zentao.zip && \
     cd /var/www/ && unzip -q zentao.zip && rm zentao.zip
 
 RUN a2enmod rewrite
