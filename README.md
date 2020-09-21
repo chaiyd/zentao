@@ -1,6 +1,7 @@
 # docker-zentao
 
 ## https://github.com/chaiyd/zentao.git
+## https://hub.docker.com/u/chaiyd
 禅道Docker Image File
 
 可挂载目录
