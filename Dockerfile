@@ -8,7 +8,7 @@ RUN sed -i s/deb.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list && \
     apt update -y && \
     apt install -y apache2 php php-curl php-gd php-ldap php-mbstring php-mysql php-xml php-zip php-cli php-json curl unzip libapache2-mod-php
 
-ARG ZENTAO_VERSION=12.4.1
+ARG ZENTAO_VERSION=12.4.2
 
 RUN mkdir -p /app/zentaopms
 COPY docker-entrypoint.sh /app
