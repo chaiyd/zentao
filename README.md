@@ -29,7 +29,7 @@ services:
             MYSQL_USER: zentao
             MYSQL_PASSWORD: ukC2ZkcG_ZTeb
         ports:
-            - 3306:3306            
+          - 3306:3306            
         volumes:
           - mysql-data:/var/lib/mysql
 volumes:
