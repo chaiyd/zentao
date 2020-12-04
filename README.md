@@ -12,7 +12,7 @@ version: '3'
 
 services:
     zentao:
-        image: chaiyd/zentao:12.4.4
+        image: chaiyd/zentao:12.5.1
         ports:
             - 9080:80
         volumes:
