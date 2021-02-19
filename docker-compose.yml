@@ -2,6 +2,7 @@ version: '3'
 
 services:
     zentao:
+        container_name: zentao
         image: chaiyd/zentao:12.5.3
         ports:
             - 9080:80
@@ -12,6 +13,7 @@ services:
         restart: always
 
     mysql:
+        container_name: zen_mysql
         image: mysql:5.7
         environment:
             MYSQL_ROOT_PASSWORD: ukC2ZkcG_ZTeb
