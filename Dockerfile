@@ -5,6 +5,7 @@ LABEL maintainer="zentao Docker Maintainers <chaiyd.cn@gmail.com>"
 RUN sed -i s/deb.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list && \
     sed -i s/security.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone && \
     apt update -y && \
     apt install -y apache2 php php-curl php-gd php-ldap php-mbstring php-mysql php-xml php-zip php-cli php-json curl unzip libapache2-mod-php
 
