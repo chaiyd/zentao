@@ -1,29 +1,41 @@
 version: '3'
 
 services:
+
     zentao:
-        container_name: zentao
-        image: chaiyd/zentao:12.5.3
-        ports:
-            - 9080:80
-        volumes:
-          - zentao-data:/app/zentaopms #该目录为禅道目录，里面包含禅道代码及附件上传目录。
-        depends_on:
-            - mysql
-        restart: always
+      # image: chaiyd/zentao:12.5.3
+      build:
+        context: ./zentao
+        args:
+          - CHANGE_SOURCE=${CHANGE_SOURCE}
+          - TZ=${TZ}
+      container_name: zentao
+      ports:
+        - 9080:80
+      volumes:
+        - ./zentao-data:/app/zentaopms #该目录为禅道目录，里面包含禅道代码及附件上传目录。
+      depends_on:
+        - mysql
+      restart: always
 
     mysql:
-        container_name: zen_mysql
-        image: mysql:5.7
-        environment:
-            MYSQL_ROOT_PASSWORD: ukC2ZkcG_ZTeb
-            MYSQL_DATABASE: zentao
-            MYSQL_USER: zentao
-            MYSQL_PASSWORD: ukC2ZkcG_ZTeb
-        ports:
-          - 3306:3306            
-        volumes:
-          - mysql-data:/var/lib/mysql
+      build:
+        context: ./mysql
+        args:
+          - MYSQL_VERSION=${MYSQL_VERSION}
+          - TZ=${TZ}
+      environment:
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_DATABASE=${MYSQL_DATABASE}
+        - MYSQL_USER=${MYSQL_USER}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        - TZ=${TZ}
+      ports:
+        - "${MYSQL_PORT}:3306"
+      volumes:
+        - ./mysql-data:/var/lib/mysql
+        - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+
 volumes:
   mysql-data:
   zentao-data:
