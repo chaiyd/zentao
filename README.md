@@ -1,6 +1,6 @@
 # docker-zentao
 
-* https://github.com/xiagw/docker-zentao.git
+* https://github.com/chaiyd/zentao.git
 
 ## 禅道
 * 禅道是专业的研发项目管理软件
