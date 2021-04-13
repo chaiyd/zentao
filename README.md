@@ -10,9 +10,8 @@
 * install docker
 * install docker-composer
 
-`cp env-example .env`
-
 修改.env文件内部参数/密码等信息
+
 ## 访问
 
 `docker-compose up -d`
