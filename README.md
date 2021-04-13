@@ -10,7 +10,7 @@
 * install docker
 * install docker-composer
 
-修改.env文件内部参数/密码等信息
+* 修改.env文件内部参数/密码等信息
 
 ## 访问
 
