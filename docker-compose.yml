@@ -3,12 +3,12 @@ version: '3'
 services:
 
     zentao:
-      # image: chaiyd/zentao:12.5.3
-      build:
-        context: ./zentao
-        args:
-          - CHANGE_SOURCE=${CHANGE_SOURCE}
-          - TZ=${TZ}
+      image: chaiyd/zentao:12.5.3
+      #build:
+      #  context: ./zentao
+      #  args:
+      #    - CHANGE_SOURCE=${CHANGE_SOURCE}
+      #    - TZ=${TZ}
       container_name: zentao
       ports:
         - 9080:80
