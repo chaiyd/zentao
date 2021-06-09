@@ -24,7 +24,7 @@ RUN apt-get -y update && \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/lastlog /var/log/faillog
 
-ARG ZENTAO_VERSION=15.0
+ARG ZENTAO_VERSION=15.0.1
 
 WORKDIR /app
 
@@ -40,8 +40,8 @@ WORKDIR /var/www
 RUN chmod +x /app/docker-entrypoint.sh && \
     sed -i '1i ServerName 127.0.0.1' /etc/apache2/apache2.conf && \
     a2enmod rewrite && \
-    curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.stable.zip -o zentao.zip && \
-    #curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.zip -o zentao.zip && \
+    #curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.stable.zip -o zentao.zip && \
+    curl http://dl.cnezsoft.com/zentao/${ZENTAO_VERSION}/ZenTaoPMS.${ZENTAO_VERSION}.zip -o zentao.zip && \
     unzip -q zentao.zip && rm zentao.zip
 
 EXPOSE 80
