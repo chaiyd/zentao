@@ -24,7 +24,7 @@ RUN apt-get -y update && \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/lastlog /var/log/faillog
 
-ARG ZENTAO_VERSION=15.0.2
+ARG ZENTAO_VERSION=15.0.3
 
 WORKDIR /app
 
